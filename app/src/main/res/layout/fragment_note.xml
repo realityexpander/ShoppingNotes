@@ -6,9 +6,6 @@
         android:layout_height="match_parent"
         tools:context=".presentation.NoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
     <EditText
             android:id="@+id/etTitleView"
             android:layout_width="0dp"
@@ -17,7 +14,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="Title"
+            android:hint="@string/title_hint"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -30,9 +27,9 @@
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:gravity="top|left"
+            android:gravity="top|start"
             android:ems="10"
-            android:hint="Note Content"
+            android:hint="@string/note_content_hint"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,5 +45,6 @@
             android:src="@drawable/ic_save_note"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="Save" />
+            android:contentDescription="@string/save_content_description" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

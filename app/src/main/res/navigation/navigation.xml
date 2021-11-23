@@ -6,6 +6,16 @@
         app:startDestination="@id/listFragment">
 
     <fragment
+            android:id="@+id/listFragment"
+            android:name="com.example.devupnotes.presentation.ListFragment"
+            android:label="fragment_list"
+            tools:layout="@layout/fragment_list" >
+        <action
+                android:id="@+id/actionGoToNote"
+                app:destination="@id/noteFragment" />
+    </fragment>
+
+    <fragment
             android:id="@+id/noteFragment"
             android:name="com.example.devupnotes.presentation.NoteFragment"
             android:label="fragment_note"
@@ -14,14 +24,5 @@
                 android:name="noteId"
                 app:argType="long"
                 android:defaultValue="0L" />
-    </fragment>
-    <fragment
-            android:id="@+id/listFragment"
-            android:name="com.example.devupnotes.presentation.ListFragment"
-            android:label="fragment_list"
-            tools:layout="@layout/fragment_list" >
-        <action
-                android:id="@+id/actionGoToNote"
-                app:destination="@id/noteFragment" />
     </fragment>
 </navigation>
