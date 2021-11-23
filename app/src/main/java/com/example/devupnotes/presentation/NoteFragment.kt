@@ -8,14 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.core.data.Note
-import com.example.devupnotes.R
-import com.example.devupnotes.databinding.FragmentListBinding
 import com.example.devupnotes.databinding.FragmentNoteBinding
 import com.example.devupnotes.framework.NoteViewModel
 
@@ -72,7 +67,7 @@ class NoteFragment : Fragment() {
 
     private fun observeViewModel() {
         // only return after saved in DB
-        viewModel.saved.observe(viewLifecycleOwner) { isSaved ->
+        viewModel.noteWasSaved.observe(viewLifecycleOwner) { isSaved ->
             if (isSaved) {
                 Toast.makeText(context, "Note Saved", Toast.LENGTH_SHORT).show()
                 hideKeyboard()
