@@ -7,13 +7,38 @@
         tools:context=".presentation.MainActivity">
 
 
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes App"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="18dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="56dp"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/navigation" />
+            app:layout_constraintTop_toTopOf="@id/toolbar"
+            app:navGraph="@navigation/navigation"
+            tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

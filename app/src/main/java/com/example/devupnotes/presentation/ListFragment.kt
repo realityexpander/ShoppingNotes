@@ -33,7 +33,6 @@ class ListFragment : Fragment() {
 
     private fun goToNoteDetails(id: Long = 0L) {
         val action = ListFragmentDirections.actionGoToNote(id)
-        view?.let { Navigation.findNavController(it).navigate(action) }
-//        Navigation.findNavController(bind.notesListView).navigate(action) // alternate way
+        Navigation.findNavController(bind.root).navigate(action) // alternate way
     }
 }

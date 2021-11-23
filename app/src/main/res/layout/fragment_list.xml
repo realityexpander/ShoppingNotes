@@ -7,10 +7,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".presentation.ListFragment">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/notesListView"
@@ -35,8 +34,7 @@
                 android:id="@+id/fabAddNote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/standard_margin"
-                android:layout_marginBottom="@dimen/standard_margin"
+                android:layout_margin ="@dimen/standard_margin"
                 android:clickable="true"
                 android:src="@drawable/ic_create"
                 app:layout_constraintBottom_toBottomOf="parent"
