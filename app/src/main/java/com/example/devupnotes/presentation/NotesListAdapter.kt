@@ -1,9 +1,7 @@
 package com.example.devupnotes.presentation
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.data.Note
 import com.example.devupnotes.databinding.ItemNoteBinding
@@ -29,7 +27,7 @@ class NotesListAdapter(var notes: ArrayList<Note>): RecyclerView.Adapter<NotesLi
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        holder.bind(notes[position])
+        holder.bindViewToData(notes[position])
     }
 
     override fun getItemCount(): Int = notes.size
@@ -40,7 +38,7 @@ class NotesListAdapter(var notes: ArrayList<Note>): RecyclerView.Adapter<NotesLi
         private val noteContent = viewBind.content
         private val noteDate = viewBind.date
 
-        fun bind(note: Note) {
+        fun bindViewToData(note: Note) {
             noteTitle.text = note.title
             noteContent.text = note.content
 
