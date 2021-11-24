@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:id="@+id/noteLayout"
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/noteLayout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height"
@@ -19,8 +20,6 @@
                 style="@style/Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title"
-                android:maxLines="1"
                 android:ellipsize="end"
                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -29,18 +28,20 @@
                 style="@style/Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Content"
-                android:maxLines="1"
                 android:ellipsize="end"
-                app:layout_constraintTop_toBottomOf="@id/title"/>
+                app:layout_constraintTop_toBottomOf="@id/title"
+                tools:layout_editor_absoluteX="16dp" />
 
         <TextView
                 android:id="@+id/date"
                 style="@style/Detail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="16sp"
                 android:text="Last updated"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:textAlignment="viewEnd"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/content"
+                tools:layout_editor_absoluteX="16dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -82,7 +82,8 @@ class NoteFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        // only return after saved in DB
+
+        // Do nav only after action happens in DB
         viewModel.noteActionTaken.observe(viewLifecycleOwner) { (isSuccessful, actionMsg) ->
             if (isSuccessful) {
                 Toast.makeText(context, actionMsg, Toast.LENGTH_SHORT).show()
@@ -93,6 +94,7 @@ class NoteFragment : Fragment() {
             }
         }
 
+        // get the current note from the VM
         viewModel.currentNote.observe(viewLifecycleOwner) { noteNullable ->
             noteNullable?.let { note ->
                 val title = bind.etTitleView
@@ -126,7 +128,7 @@ class NoteFragment : Fragment() {
                         .setPositiveButton("Yes") { dialogInterface, i ->
                             viewModel.deleteNote(currentNote)
                         }
-                        .setNegativeButton("No") { dialogInterface, i ->
+                        .setNegativeButton("Cancel") { dialogInterface, i ->
                             // do nothing
                         }
                         .create()

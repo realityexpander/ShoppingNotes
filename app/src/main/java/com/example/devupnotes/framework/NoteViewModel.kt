@@ -9,21 +9,36 @@ import com.example.core.usecase.AddNote
 import com.example.core.usecase.GetAllNotes
 import com.example.core.usecase.GetNote
 import com.example.core.usecase.RemoveNote
+import com.example.devupnotes.framework.di.ApplicationModule
+import com.example.devupnotes.framework.di.DaggerViewModelComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class NoteViewModel(application: Application): AndroidViewModel(application) {
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-    val repository = NoteRepository(RoomNoteDataSource(application))
+//    val repository = NoteRepository(RoomNoteDataSource(application)) // now injected via UseCases
 
-    val useCases = UseCases(
-        AddNote(repository),
-        GetAllNotes(repository),
-        GetNote(repository),
-        RemoveNote(repository)
-    )
+    @Inject
+    lateinit var useCases: UseCases
+//    val useCases = UseCases(
+//        AddNote(repository),
+//        GetAllNotes(repository),
+//        GetNote(repository),
+//        RemoveNote(repository)
+//    )
+
+    init {
+        DaggerViewModelComponent.builder()
+            .applicationModule(ApplicationModule(getApplication()))
+            .build()
+            .inject(this)
+
+        println("useCases=${useCases.hashCode()}")
+        println("useCases=${useCases}")
+    }
 
     val noteActionTaken = MutableLiveData<Pair<Boolean,String>>() //(isSuccessful, actionMsg)
     val currentNote = MutableLiveData<Note?>()

@@ -8,6 +8,7 @@ data class Note(
     var id: Long = 0
 ): Comparable<Note> {
 
+    // Deep comparison for ==, <, >
     override fun compareTo(other: Note): Int {
         println("compareTo: ${this}, $other")
         return when {
