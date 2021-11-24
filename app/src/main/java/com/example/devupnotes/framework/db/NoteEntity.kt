@@ -16,11 +16,17 @@ data class NoteEntity(
     @ColumnInfo(name = "update_time")
     val updateTime: Long,
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true) // if id==0, create a new row & id in DB
     val id: Long = 0L
 ){
     companion object {
-        fun fromNote(note: Note) = NoteEntity(note.title, note.content, note.creationTime, note.updateTime)
+        fun fromNote(note: Note) = NoteEntity(
+            note.title,
+            note.content,
+            note.creationTime,
+            note.updateTime,
+            note.id
+        )
     }
 
     fun toNote() = Note(title, content, creationTime, updateTime, id)

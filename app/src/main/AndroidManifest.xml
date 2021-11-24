@@ -14,7 +14,7 @@
                 android:exported="true"
                 android:label="@string/app_name"
                 android:windowSoftInputMode="adjustResize"
-                android:theme="@style/Theme.DevupNotes.NoActionBar">
+                android:theme="@style/Theme.DevupNotes.ActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

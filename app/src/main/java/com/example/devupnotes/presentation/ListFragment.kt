@@ -18,9 +18,9 @@ import com.example.devupnotes.framework.NoteViewModel
  * Use the [ListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), ListAction {
 
-    private val notesListAdapter = NotesListAdapter(arrayListOf())
+    private val notesListAdapter = NotesListAdapter(arrayListOf(), this)
 
     private val viewModel: ListViewModel by viewModels()
     private lateinit var bind: FragmentListBinding
@@ -63,7 +63,11 @@ class ListFragment : Fragment() {
     }
 
     private fun goToNoteDetails(id: Long = 0L) {
-        val action = ListFragmentDirections.actionGoToNote(id)
-        Navigation.findNavController(bind.root).navigate(action) // alternate way
+        val action = ListFragmentDirections.actionGoToNote(id) // set NoteFragmentArgs.noteId
+        Navigation.findNavController(bind.root).navigate(action)
+    }
+
+    override fun onClick(id: Long) {
+        goToNoteDetails(id)
     }
 }

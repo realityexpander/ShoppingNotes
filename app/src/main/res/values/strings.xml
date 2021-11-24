@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DevupNotes</string>
+    <string name="app_name">Notes</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -15,4 +15,5 @@
     <string name="save_content_description">Save</string>
     <string name="note_content_hint">Note Content</string>
     <string name="title_hint">Title</string>
+    <string name="delete_note_menu_item">Delete Note</string>
 </resources>
