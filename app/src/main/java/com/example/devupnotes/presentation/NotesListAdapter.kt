@@ -21,7 +21,7 @@ class NotesListAdapter(var notes: ArrayList<Note>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-//        LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
+//        LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false) // old way with synthetix
         viewBind = ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return NoteViewHolder(viewBind)
@@ -45,13 +45,13 @@ class NotesListAdapter(var notes: ArrayList<Note>,
             noteContent.text = note.content
             noteWordCount.text = note.wordCount.toString()
 
-            val sdf = SimpleDateFormat("MMM dd, HH:mm:ss", Locale.US)
+            val sdf = SimpleDateFormat("EEE MMM dd, yyyy hh:mm a", Locale.US)
             val resultDate = Date(note.updateTime)
             "Last Updated: ${sdf.format(resultDate)}".also { noteDate.text = it }
             "Words : ${note.wordCount}".also { noteWordCount.text = it }
 
             layout.setOnClickListener {
-                actions.onClick(note.id)
+                actions.onClickListItem(note.id)
             }
         }
     }

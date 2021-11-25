@@ -36,8 +36,8 @@ class ListViewModel(application: Application): AndroidViewModel(application)  {
             .build()
             .inject(this)
 
-        println("useCases=${useCases.hashCode()}")
-        println("useCases=${useCases}")
+//        println("useCases=${useCases.hashCode()}")  // checking for singletons
+//        println("useCases=${useCases}")
     }
 
     val notes = MutableLiveData<List<Note>>()

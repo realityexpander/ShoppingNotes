@@ -40,7 +40,7 @@ class NoteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        return inflater.inflate(R.layout.fragment_note, container, false)
+//        return inflater.inflate(R.layout.fragment_note, container, false) // old way with synthetix
 
         bind = FragmentNoteBinding.inflate(inflater, container, false);
         return bind.root;
@@ -51,9 +51,10 @@ class NoteFragment : Fragment() {
 
         // viewModel = ViewModelProviders.of(this).get(NoteViewModel::class.java) // old way of getting VM
 
-        // Get arguments
+        // Get arguments (if any)
         arguments?.let { bundle ->
             noteId = NoteFragmentArgs.fromBundle(bundle).noteId
+
             if(noteId != 0L) { // is it NOT a new note?
                 viewModel.getNote(noteId)
             }
@@ -68,6 +69,7 @@ class NoteFragment : Fragment() {
             if( (oldNote != currentNote) && (title != "" || content != "")) {
                 val time  = System.currentTimeMillis()
                 currentNote.updateTime = time
+
                 if (currentNote.id == 0L) { // is it a new note?
                     currentNote.creationTime = time
                 }

@@ -19,10 +19,10 @@ import javax.inject.Inject
 class NoteViewModel(application: Application): AndroidViewModel(application) {
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-//    val repository = NoteRepository(RoomNoteDataSource(application)) // now injected via UseCases
+//    val repository = NoteRepository(RoomNoteDataSource(application)) // now injected via DI
 
     @Inject
-    lateinit var useCases: UseCases
+    lateinit var useCases: UseCases  // now injected via DI
 //    val useCases = UseCases(
 //        AddNote(repository),
 //        GetAllNotes(repository),
@@ -36,8 +36,8 @@ class NoteViewModel(application: Application): AndroidViewModel(application) {
             .build()
             .inject(this)
 
-        println("useCases=${useCases.hashCode()}")
-        println("useCases=${useCases}")
+//        println("useCases=${useCases.hashCode()}") // checking for singletons
+//        println("useCases=${useCases}")
     }
 
     val noteActionTaken = MutableLiveData<Pair<Boolean,String>>() //(isSuccessful, actionMsg)

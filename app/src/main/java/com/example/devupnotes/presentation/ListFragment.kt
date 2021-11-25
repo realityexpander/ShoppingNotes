@@ -67,7 +67,7 @@ class ListFragment : Fragment(), ListAction {
         Navigation.findNavController(bind.root).navigate(action)
     }
 
-    override fun onClick(id: Long) {
+    override fun onClickListItem(id: Long) {
         goToNoteDetails(id)
     }
 }
