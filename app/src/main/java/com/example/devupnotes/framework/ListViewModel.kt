@@ -19,11 +19,11 @@ import javax.inject.Inject
 class ListViewModel(application: Application): AndroidViewModel(application)  {
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-//  val repository = NoteRepository(RoomNoteDataSource(application)) // Now being injected thru UseCases
+//  val repository = NoteRepository(RoomNoteDataSource(application)) // Now being injected with DI
 
     @Inject
     lateinit var useCases: UseCases
-//    val useCases = UseCases(
+//    val useCases = UseCases( // Now injected with DI
 //        AddNote(repository),
 //        GetAllNotes(repository),
 //        GetNote(repository),
@@ -45,6 +45,11 @@ class ListViewModel(application: Application): AndroidViewModel(application)  {
     fun getNotes() {
         coroutineScope.launch {
             val noteList = useCases.getAllNotes()
+
+            // Calc the wordCount for each note
+            noteList.forEach {
+                it.wordCount = useCases.getWordCount(it)
+            }
             notes.postValue(noteList)
         }
     }

@@ -1,10 +1,7 @@
 package com.example.devupnotes.framework.di
 
 import com.example.core.repository.NoteRepository
-import com.example.core.usecase.AddNote
-import com.example.core.usecase.GetAllNotes
-import com.example.core.usecase.GetNote
-import com.example.core.usecase.RemoveNote
+import com.example.core.usecase.*
 import com.example.devupnotes.framework.UseCases
 import dagger.Module
 import dagger.Provides
@@ -15,11 +12,11 @@ import javax.inject.Singleton
 class UseCasesModule {
 
     @Provides
-    fun getUseCases(repository: NoteRepository) = UseCases(
+    fun getUseCases(repository: NoteRepository) = UseCases(  // instantiates all the objects here
         AddNote(repository),
         GetAllNotes(repository),
         GetNote(repository),
-        RemoveNote(repository)
+        RemoveNote(repository),
+        GetWordCount()
     )
-
 }

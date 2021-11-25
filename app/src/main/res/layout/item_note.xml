@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
+                android:text="Title"
                 app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
@@ -28,20 +29,32 @@
                 style="@style/Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="1"
                 android:ellipsize="end"
+                android:text="Content"
                 app:layout_constraintTop_toBottomOf="@id/title"
                 tools:layout_editor_absoluteX="16dp" />
 
         <TextView
                 android:id="@+id/date"
                 style="@style/Detail"
-                android:layout_width="match_parent"
-                android:layout_height="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Last updated"
                 android:textAlignment="viewEnd"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/content"
-                tools:layout_editor_absoluteX="16dp" />
+                app:layout_constraintStart_toStartOf="@+id/content"
+                app:layout_constraintTop_toBottomOf="@+id/content" />
+
+        <TextView
+                android:id="@+id/wordCount"
+                style="@style/Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Words: "
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/content" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
