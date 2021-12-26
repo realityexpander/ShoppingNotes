@@ -8,4 +8,5 @@ Note taking app using SOLID principles and CLEAN architecture patterns. Uses Roo
 - Single Activity architecture
 - Navigation Component
 - View Binding
-LiveData observer UI model
+- LiveData observer pattern for UI/Database updates
+- Dependency Injection
