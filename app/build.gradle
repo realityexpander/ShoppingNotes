@@ -22,6 +22,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            versionNameSuffix '1.0'
+        }
+        debug {
+            versionNameSuffix '1.0'
         }
     }
     compileOptions {
