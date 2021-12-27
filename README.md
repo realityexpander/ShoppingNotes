@@ -1,8 +1,8 @@
 # ShoppingNotes
 Note taking app using SOLID principles and CLEAN architecture patterns. Uses Room database, MVVM, Use cases.
 
-[<img src="https://user-images.githubusercontent.com/5157474/147439179-017b54ab-1ba4-4cce-946e-c4f329a989a0.png" width="200"/>]()
-[<img src="https://user-images.githubusercontent.com/5157474/147439195-20b0d4df-bfb3-4b3e-942f-3185527ba255.png" width="200"/>]()
+[<img src="https://user-images.githubusercontent.com/5157474/147439179-017b54ab-1ba4-4cce-946e-c4f329a989a0.png" width="250"/>]()
+[<img src="https://user-images.githubusercontent.com/5157474/147439195-20b0d4df-bfb3-4b3e-942f-3185527ba255.png" width="250"/>]()
 
 ---- Tech used ----
 - Activities
